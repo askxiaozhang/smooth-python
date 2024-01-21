@@ -16,9 +16,14 @@ class MyIterable:
             print("this:",result)
             return result
         else:
-            raise StopIteration
+            #raise StopIteration
         # 环的实现原理
-
+            
+            self.index = 0
+            result = self.data[self.index]
+            self.index += 1
+            print("this:", result)
+            return result
 
 # 使用自定义类进行迭代
 my_iterable = MyIterable([1, 2, 3, 4])
@@ -35,4 +40,4 @@ my_iterator.__next__()  # 输出: StopIteration
 
 print("---------分割线-------")
 for i in my_iterable:
-    continue
+    print(i) # 输出: 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 ...
