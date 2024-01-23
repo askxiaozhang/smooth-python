@@ -39,3 +39,57 @@ if __name__ == "__main__":
 
 
 
+    ai_res = "I don't"
+    ai_res2 = "there's"
+    human_res = "I don't"
+    human_res2 = "there's"
+    def print_ord(s):
+        ords = [ord(s) for s in s]
+        print(ords)
+
+    print_ord(ai_res)
+    print_ord(human_res)
+
+    print_ord(ai_res2)
+    print_ord(human_res2)
+
+    import threading
+
+    import threading
+
+
+    class Singleton:
+        __instance = None
+        __lock = threading.Lock()
+
+        @classmethod
+        def getinstance(cls):
+            if cls.__instance is None:
+                with cls.__lock:
+                    if cls.__instance is None:
+                        # cls.__instance = super().__new__(cls)
+                        cls.__instance = Singleton()
+            return cls.__instance
+
+
+
+
+    内置序列类型
+    class Singleton:
+
+        __instance: Singleton = None
+
+        @staticmethod
+        def getInstance():
+            if Singleton.__instance is None:
+                Singleton.__instance = Singleton()
+            return Singleton.__instance
+
+    singleton1 = Singleton().getInstance()
+    print(singleton1)
+
+    singleton2 = Singleton().getInstance()
+    print(singleton2)
+
+    # 由于是单例模式，所以两次获取的实例是相同的
+    print(singleton1 is singleton2)
