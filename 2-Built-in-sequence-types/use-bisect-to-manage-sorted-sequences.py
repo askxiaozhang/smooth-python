@@ -33,3 +33,35 @@ def main_2_8_1():
     demo(bisect_fn)
 
 
+def chapter_2_8_2():
+    import bisect
+    import random
+
+    SIZE = 7
+    random.seed(1729)
+    my_list = []
+    for i in range(SIZE):
+        #random.randrange(start, stop[, step])
+        new_item = random.randrange(SIZE * 2) #如果SIZE的值为5 将在0到9之间生成一个随机整数（不包括9）。
+        bisect.insort(my_list, new_item) #以升序插入new_item
+        print('%2d ->' % new_item, my_list)
+
+    # lo,hi 的例子：
+    # 已排序的列表
+    data = [1, 3, 5, 7, 9]
+
+    # 要插入的数字
+    x = 6
+
+    # 确定插入位置的搜索范围
+    lo = 0  # 起始位置
+    hi = 3  # 结束位置（不包括）
+
+    # 使用 bisect 函数确定插入位置
+    insert_position = bisect.bisect_left(data, x, lo, hi)
+
+    print("要插入的数字应该插入到索引位置:", insert_position)
+
+
+if __name__ == "__main__":
+    chapter_2_8_2()
