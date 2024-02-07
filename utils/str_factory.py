@@ -1,6 +1,8 @@
 def name(chapter):
-    print("-".join(chapter.split(" ")))
+    print("-".join([i.lower() for i in chapter.split(" ")]))
 
 if __name__ == "__main__":
-    name("列表推导和生成器表达式")
+    name("Incremental assignment of the sequence")
     name("List derivation and generator expressions")
+
+    name("Use bisect to manage sorted sequences") # 用bisect来管理已排序的序列
